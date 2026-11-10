@@ -1,0 +1,222 @@
+{
+  "report": {
+    "trades": 17,
+    "win_rate": 0.2941,
+    "avg_win": 66.48,
+    "avg_loss": -75.45,
+    "total_pnl": -573.05,
+    "final_equity": 9426.95,
+    "max_drawdown": 0.061,
+    "last_year_trades": 5,
+    "last_year_pnl": -84.63,
+    "last_year_win_rate": 0.4,
+    "skipped_for_1pct": 9,
+    "reject": true,
+    "reject_reason": "交易次数少于 30 次",
+    "data_range": "2023-11-01 至 2026-11-06，731 个交易日",
+    "costs": {
+      "commission": 0.00025,
+      "stamp_duty_sell": 0.0005,
+      "transfer_fee": 1e-05,
+      "slippage_per_side": 0.001
+    },
+    "params": {
+      "target_r": 2.0,
+      "vol_window": 30,
+      "mom_days": 5,
+      "strong_pct": 0.05,
+      "stop": "信号日最低价",
+      "entry": "信号次日开盘",
+      "max_hold": 3
+    }
+  },
+  "trades": [
+    {
+      "entry_date": "2024-03-01",
+      "exit_date": "2024-03-05",
+      "entry": 11.3,
+      "stop": 10.47,
+      "target": 12.96,
+      "exit": 11.03,
+      "shares": 100,
+      "pnl": -37.81,
+      "reason": "hold_expired"
+    },
+    {
+      "entry_date": "2024-03-20",
+      "exit_date": "2024-03-22",
+      "entry": 12.07,
+      "stop": 11.22,
+      "target": 13.78,
+      "exit": 11.87,
+      "shares": 100,
+      "pnl": -31.01,
+      "reason": "hold_expired"
+    },
+    {
+      "entry_date": "2024-04-29",
+      "exit_date": "2024-05-07",
+      "entry": 10.3,
+      "stop": 9.7,
+      "target": 11.5,
+      "exit": 11.49,
+      "shares": 100,
+      "pnl": 108.31,
+      "reason": "target"
+    },
+    {
+      "entry_date": "2024-06-20",
+      "exit_date": "2024-06-21",
+      "entry": 9.91,
+      "stop": 9.54,
+      "target": 10.65,
+      "exit": 9.53,
+      "shares": 200,
+      "pnl": -86.88,
+      "reason": "stop"
+    },
+    {
+      "entry_date": "2024-08-05",
+      "exit_date": "2024-08-06",
+      "entry": 10.15,
+      "stop": 9.6,
+      "target": 11.25,
+      "exit": 9.59,
+      "shares": 100,
+      "pnl": -66.47,
+      "reason": "stop"
+    },
+    {
+      "entry_date": "2024-10-18",
+      "exit_date": "2024-10-22",
+      "entry": 9.89,
+      "stop": 9.26,
+      "target": 11.15,
+      "exit": 10.03,
+      "shares": 100,
+      "pnl": 3.49,
+      "reason": "hold_expired"
+    },
+    {
+      "entry_date": "2024-10-28",
+      "exit_date": "2024-10-30",
+      "entry": 10.64,
+      "stop": 10.11,
+      "target": 11.7,
+      "exit": 10.84,
+      "shares": 100,
+      "pnl": 9.29,
+      "reason": "hold_expired"
+    },
+    {
+      "entry_date": "2024-11-22",
+      "exit_date": "2024-11-25",
+      "entry": 13.67,
+      "stop": 12.7,
+      "target": 15.62,
+      "exit": 12.69,
+      "shares": 100,
+      "pnl": -109.3,
+      "reason": "stop"
+    },
+    {
+      "entry_date": "2025-01-09",
+      "exit_date": "2025-01-13",
+      "entry": 11.53,
+      "stop": 10.76,
+      "target": 13.07,
+      "exit": 10.75,
+      "shares": 100,
+      "pnl": -88.79,
+      "reason": "stop"
+    },
+    {
+      "entry_date": "2025-01-15",
+      "exit_date": "2025-01-17",
+      "entry": 11.61,
+      "stop": 10.83,
+      "target": 13.17,
+      "exit": 11.13,
+      "shares": 100,
+      "pnl": -58.85,
+      "reason": "hold_expired"
+    },
+    {
+      "entry_date": "2025-02-25",
+      "exit_date": "2025-02-27",
+      "entry": 13.46,
+      "stop": 13.08,
+      "target": 14.23,
+      "exit": 13.07,
+      "shares": 200,
+      "pnl": -90.67,
+      "reason": "stop"
+    },
+    {
+      "entry_date": "2025-05-20",
+      "exit_date": "2025-05-22",
+      "entry": 11.01,
+      "stop": 10.49,
+      "target": 12.05,
+      "exit": 10.72,
+      "shares": 100,
+      "pnl": -39.73,
+      "reason": "hold_expired"
+    },
+    {
+      "entry_date": "2026-01-05",
+      "exit_date": "2026-01-08",
+      "entry": 14.66,
+      "stop": 13.72,
+      "target": 16.55,
+      "exit": 16.54,
+      "shares": 100,
+      "pnl": 176.42,
+      "reason": "target"
+    },
+    {
+      "entry_date": "2026-03-30",
+      "exit_date": "2026-04-01",
+      "entry": 12.16,
+      "stop": 11.58,
+      "target": 13.33,
+      "exit": 12.62,
+      "shares": 100,
+      "pnl": 34.87,
+      "reason": "hold_expired"
+    },
+    {
+      "entry_date": "2026-08-18",
+      "exit_date": "2026-08-19",
+      "entry": 10.71,
+      "stop": 9.78,
+      "target": 12.57,
+      "exit": 9.77,
+      "shares": 100,
+      "pnl": -104.56,
+      "reason": "stop"
+    },
+    {
+      "entry_date": "2026-09-22",
+      "exit_date": "2026-09-24",
+      "entry": 10.89,
+      "stop": 10.26,
+      "target": 12.15,
+      "exit": 10.25,
+      "shares": 100,
+      "pnl": -74.65,
+      "reason": "stop"
+    },
+    {
+      "entry_date": "2026-11-04",
+      "exit_date": "2026-11-05",
+      "entry": 10.66,
+      "stop": 10.57,
+      "target": 10.84,
+      "exit": 10.56,
+      "shares": 1000,
+      "pnl": -116.71,
+      "reason": "stop"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "report": {
+    "trades": 5,
+    "win_rate": 0.0,
+    "avg_win": 0.0,
+    "avg_loss": -50.03,
+    "total_pnl": -250.13,
+    "final_equity": 9749.88,
+    "max_drawdown": 0.025,
+    "last_year_trades": 1,
+    "last_year_pnl": -14.53,
+    "last_year_win_rate": 0.0,
+    "skipped_for_1pct": 14,
+    "reject": true,
+    "reject_reason": "交易次数少于 30 次",
+    "data_range": "2023-11-01 至 2026-11-06，731 个交易日",
+    "costs": {
+      "commission": 0.00025,
+      "stamp_duty_sell": 0.0005,
+      "transfer_fee": 1e-05,
+      "slippage_per_side": 0.001
+    },
+    "params": {
+      "target_r": 2.0,
+      "vol_window": 30,
+      "mom_days": 5,
+      "strong_pct": 0.05,
+      "stop": "信号日最低价",
+      "entry": "信号次日开盘",
+      "max_hold": 3
+    }
+  },
+  "trades": [
+    {
+      "entry_date": "2024-03-01",
+      "exit_date": "2024-03-05",
+      "entry": 10.16,
+      "stop": 9.51,
+      "target": 11.46,
+      "exit": 10.1,
+      "shares": 100,
+      "pnl": -16.55,
+      "reason": "hold_expired"
+    },
+    {
+      "entry_date": "2024-11-21",
+      "exit_date": "2024-11-25",
+      "entry": 12.56,
+      "stop": 11.66,
+      "target": 14.37,
+      "exit": 11.65,
+      "shares": 100,
+      "pnl": -102.03,
+      "reason": "stop"
+    },
+    {
+      "entry_date": "2025-02-24",
+      "exit_date": "2025-02-27",
+      "entry": 12.38,
+      "stop": 11.61,
+      "target": 13.93,
+      "exit": 11.6,
+      "shares": 100,
+      "pnl": -89.0,
+      "reason": "stop"
+    },
+    {
+      "entry_date": "2025-03-06",
+      "exit_date": "2025-03-10",
+      "entry": 12.07,
+      "stop": 11.35,
+      "target": 13.52,
+      "exit": 11.9,
+      "shares": 100,
+      "pnl": -28.02,
+      "reason": "hold_expired"
+    },
+    {
+      "entry_date": "2026-09-10",
+      "exit_date": "2026-09-14",
+      "entry": 14.02,
+      "stop": 13.3,
+      "target": 15.47,
+      "exit": 13.99,
+      "shares": 100,
+      "pnl": -14.53,
+      "reason": "hold_expired"
+    }
+  ]
+}
