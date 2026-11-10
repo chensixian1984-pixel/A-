@@ -8,11 +8,14 @@
 *{box-sizing:border-box} body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#0f141a;color:#e6edf3}
 .wrap{max-width:1080px;margin:0 auto;padding:24px 16px 48px}
 header{margin-bottom:20px} h1{font-size:26px;margin:0 0 6px} .sub{color:#8b98a5;font-size:14px}
+.banner{background:#1f6feb22;border:1px solid #1f6feb66;border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.7;margin:16px 0}
+.banner b{color:#79b8ff}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0}
 .kpi{background:#1a2129;border:1px solid #2a333d;border-radius:12px;padding:16px}
 .kpi .v{font-size:26px;font-weight:700} .kpi .l{color:#8b98a5;font-size:13px;margin-top:4px}
 .card{background:#1a2129;border:1px solid #2a333d;border-radius:12px;padding:20px;margin-bottom:16px}
 .card h2{font-size:18px;margin:0 0 14px}
+.card h3{font-size:15px;margin:18px 0 10px;color:#c9d1d9}
 .funnel{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .step{background:#212b36;border:1px solid #2a333d;border-radius:10px;padding:12px 16px;text-align:center;flex:1;min-width:120px}
 .step .n{font-size:24px;font-weight:700} .step .t{color:#8b98a5;font-size:12px;margin-top:2px}
@@ -31,27 +34,72 @@ details summary{cursor:pointer;color:#79b8ff} details p{color:#c9d1d9;font-size:
 .rule b{display:block;margin-bottom:4px}
 .note{color:#8b98a5;font-size:13px;line-height:1.7}
 .tag{display:inline-block;background:#8957e533;color:#d2a8ff;border-radius:6px;padding:2px 8px;font-size:12px;margin-right:6px}
+/* 可视化工作流 */
+.stages{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin-bottom:6px}
+.stage{flex:1;min-width:150px;background:#212b36;border:1px solid #2a333d;border-radius:10px;padding:14px}
+.stage.hot{border-color:#ff7b72}
+.stage.done{border-color:#3fb950}
+.stage .sn{font-size:13px;color:#8b98a5}
+.stage .st{font-size:17px;font-weight:700;margin:4px 0}
+.stage .sc{font-size:24px;font-weight:700}
+.stage .sd{font-size:12.5px;color:#8b98a5;line-height:1.6;margin-top:6px}
+.stage .arr{color:#8b98a5;font-size:20px;align-self:center}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.filters button{background:#212b36;color:#c9d1d9;border:1px solid #2a333d;border-radius:20px;padding:6px 14px;font-size:13px;cursor:pointer}
+.filters button.on{background:#1f6feb;color:#fff;border-color:#1f6feb}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:#212b36;border:1px solid #2a333d;border-radius:8px;padding:8px 12px;font-size:13px;cursor:pointer;text-align:left}
+.chip small{display:block;color:#8b98a5;font-size:11px;margin-top:2px}
+.chip:hover{border-color:#79b8ff}
+.chip.on{border-color:#1f6feb;background:#1f6feb33}
+.chip.hide{display:none}
+.journey{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.jstep{background:#212b36;border:1px solid #2a333d;border-radius:10px;padding:10px 14px;flex:1;min-width:130px}
+.jstep .ji{font-size:15px;font-weight:700}
+.jstep .jd{font-size:12.5px;color:#c9d1d9;line-height:1.6;margin-top:4px}
+.jstep.pass{border-color:#3fb950} .jstep.fail{border-color:#ff7b72} .jstep.skip{border-color:#2a333d;opacity:.75}
+.jarrow{color:#8b98a5;font-size:18px}
+.detail{background:#0f141a;border:1px solid #2a333d;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.8}
+.detail b{color:#fff}
 </style>
 </head>
 <body><div class="wrap">
 <header>
 <h1>AI 交易台 · 可视化看板</h1>
-<div class="sub">沪深模拟盘 · 1 万元 · 短线 T+1（持仓 1-3 天） · 数据截至 2026-11-10 收盘 · 模拟盘，不产生真实交易</div>
+<div class="sub">沪深模拟盘 · 2 万元 · 短线 T+1（持仓 1-3 天） · 数据截至 2026-11-10 收盘 · 模拟盘，不产生真实交易</div>
 </header>
 
+<div class="banner"><b>规则变更（Chen 2026-11-10 18:22 / 18:23 决定）：</b>模拟盘资金由 10,000 元上调到 <b>20,000 元</b>，单笔含成本止损上限由 100 元提到 <b>200 元（1%）</b>，单日上限 400 元（2%），买入日总预算由 8,000 元提到 <b>16,000 元</b>。下表 21 支候选是变更前的决策记录，按当时 10,000 元口径（止损百分比、预算）原样保留，不改写历史。</div>
+
 <div class="kpis">
-<div class="kpi"><div class="v">¥10,000</div><div class="l">现金（未动）</div></div>
+<div class="kpi"><div class="v">¥20,000</div><div class="l">现金（未动）</div></div>
 <div class="kpi"><div class="v">0 / 5</div><div class="l">当前持仓</div></div>
 <div class="kpi"><div class="v">0 笔</div><div class="l">累计交易</div></div>
 <div class="kpi"><div class="v">21 支全否</div><div class="l">进表候选（11-08 至 11-10）</div></div>
-<div class="kpi"><div class="v">¥8,000 空闲</div><div class="l">周三买入预算</div></div>
+<div class="kpi"><div class="v">¥16,000 空闲</div><div class="l">周三买入预算</div></div>
 </div>
 
 <div class="card"><h2>今日市场（2026-11-10 收盘 · 澎湃新闻 15:25）</h2>
 <div class="note">上证 <b style="color:#e6edf3">3663.72 +0.08%</b> · 深成 <b style="color:#e6edf3">11241.54 +0.86%</b> · 创业板 <b style="color:#e6edf3">2494.40 +1.46%</b> · 两市成交约 1.52 万亿，4,270 家上涨。领涨 AI 短剧/影视、半导体；油气、煤炭、航运领跌。</div>
 </div>
 
-<div class="card"><h2>流水线漏斗（本周）</h2>
+<div class="card"><h2>可视化工作流 · 一支候选是怎么走完流水线的</h2>
+<p class="note" style="margin-top:0">五个环节一步都不能跳。点下面任意一支候选，看它在每个环节的 verdict（通过 / 否决 / 没走到）。21 支全部在策略师环节被否决，风控和交易员至今没收到过任何一支。</p>
+<div class="stages">
+<div class="stage"><div class="sn">第 1 步 · 侦察 Recon</div><div class="st">找异动</div><div class="sc">多轮扫描</div><div class="sd">交易时段每 30 分钟扫新闻、公告、板块异动；只送有来源的发现，无信号就报「无信号」。</div></div>
+<div class="stage"><div class="sn">第 2 步 · 图表分析 Chart</div><div class="st">打分</div><div class="sc" style="color:#79b8ff">21 支通过</div><div class="sd">TradingView 查日线/4 小时、支撑阻力、RSI、50/200 日均线、量能；7 分以上才送策略师，7 分以下淘汰（淘汰的不进表）。</div></div>
+<div class="stage hot"><div class="sn">第 3 步 · 策略师 Strategist</div><div class="st">做计划 + 回测</div><div class="sc" style="color:#ff7b72">21 支否决</div><div class="sd">定入场、止损、目标、仓位；同一套规则在 3 年数据上回测（含手续费和滑点）。命中否决线即否决，不发风控。</div></div>
+<div class="stage"><div class="sn">第 4 步 · 风控 Risk</div><div class="st">最终否决权</div><div class="sc">0 支收到</div><div class="sd">核单笔/单日风险、持仓相关性、财报与美联储/CPI 事件；全过才盖「已批准」。</div></div>
+<div class="stage"><div class="sn">第 5 步 · 交易员 Trader</div><div class="st">执行</div><div class="sc">0 单</div><div class="sd">只执行「已批准」的计划，限价单；成交后立即挂止损；超入场价 0.5% 不追。</div></div>
+</div>
+<h3>点一支，看它的完整旅程</h3>
+<div class="filters" id="filters"></div>
+<div class="chips" id="chips"></div>
+<div id="journey" style="margin-top:16px"></div>
+<p class="note">示例旅程：<a href="javascript:void(0)" onclick="selectCand('300133')" style="color:#79b8ff">华策影视 300133</a>（唯一踩中“只在特定参数下有效”这条否决线）· <a href="javascript:void(0)" onclick="selectCand('300613')" style="color:#79b8ff">富瀚微 300613</a>（回测、止损、预算三条线全踩）。工作流图另见仓库 <code>workflow.md</code>（Mermaid 流程图，GitHub 直接渲染）。</p>
+</div>
+
+<div class="card"><h2>流水线漏斗（本周，截至 11-10 收盘）</h2>
 <div class="funnel">
 <div class="step"><div class="n">21</div><div class="t">进表候选</div></div><div class="arrow">→</div>
 <div class="step"><div class="n">21</div><div class="t">图表 7 分以上通过</div></div><div class="arrow">→</div>
@@ -68,13 +116,13 @@ details summary{cursor:pointer;color:#79b8ff} details p{color:#c9d1d9;font-size:
 <div class="brow"><span class="blabel">回测少于 30 笔</span><div class="btrack"><div class="bfill" style="width:24%;background:#d29922"></div></div><span class="bval">5 支</span></div>
 <div class="brow"><span class="blabel">只在特定参数下有效</span><div class="btrack"><div class="bfill" style="width:5%;background:#a371f7"></div></div><span class="bval">1 支</span></div>
 <div class="brow"><span class="blabel">100 股成本超周三预算</span><div class="btrack"><div class="bfill" style="width:5%;background:#79b8ff"></div></div><span class="bval">1 支</span></div>
-<p class="note">止损按含成本实际亏损算（佣金 0.025% 最低 5 元、卖出印花税 0.05%、过户费 0.001%、滑点每边 0.1%）。</p>
+<p class="note">止损按含成本实际亏损算（佣金 0.025% 最低 5 元、卖出印花税 0.05%、过户费 0.001%、滑点每边 0.1%）。本分布按决策当时 10,000 元口径统计。</p>
 </div>
 
 <div class="card"><h2>全部候选（21 支，点击“详情”看完整否决原因）</h2>
 <div style="overflow-x:auto"><table>
 <tr><th>日期</th><th>标的</th><th>图表分</th><th>入场</th><th>止损</th><th>目标</th><th>含成本止损</th><th>最近一年回测</th><th>否决主因</th><th></th></tr>
-<tr><td>2026-11-08</td><td><b>海尔智家 600690</b></td><td><span class='score'>7 分</span></td><td>21.62</td><td>20.70</td><td>23.46</td><td class='ok'>—</td><td class='bad'>-74.07 元</td><td>回测笔数不足 + 最近一年亏损</td><td><details><summary>详情</summary><p>否决原因：3 年回测仅 19 笔（&lt;30），最近一年 -74.07 元不赚钱；参数敏感性 18-21 笔均否决。未发风控，未发交易员。短线口径复核（最长持仓 3 天）：21 笔，最近一年 -154.97 元，仍否决。</p></details></td></tr>
+<tr><td>2026-11-08</td><td><b>海尔智家 600690</b></td><td><span class='score'>7 分</span></td><td>21.62</td><td>20.70</td><td>23.46</td><td class='ok'>—</td><td class='bad'>-74.07 元</td><td>回测笔数不足 + 最近一年亏损</td><td><details><summary>详情</summary><p>否决原因：3 年回测仅 19 笔（&lt;30），最近一年 -74.07 元不赚钱；参数敏感性 18-21 笔均否决。未发风控，未发交易员。短线口径复核（最长持仓 3 天）：21 笔，最近一年 -154.97 元，仍否决。含成本实际止损亏损约 107.31 元（1.07%），这支正是含成本止损规则的来源。</p></details></td></tr>
 <tr><td>2026-11-08</td><td><b>长江电力 600900</b></td><td><span class='score'>8 分</span></td><td>29.91</td><td>29.25</td><td>31.23</td><td class='ok'>0.83%</td><td class='bad'>-264.45 元</td><td>回测笔数不足 + 最近一年亏损</td><td><details><summary>详情</summary><p>否决原因：3 年回测仅 28 笔（&lt;30），最近一年 16 笔 -264.45 元不赚钱；参数敏感性 27-32 笔，无一组同时通过两条否决线。含成本实际止损亏损约 83.44 元（0.83%），在 1% 线内。未发风控，未发交易员。</p></details></td></tr>
 <tr><td>2026-11-09</td><td><b>中国卫星 600118</b></td><td><span class='score'>7 分</span></td><td>60.50</td><td>55.00</td><td>71.50</td><td class='bad'>5.74%</td><td class='bad'>-852.97 元</td><td>含成本止损超 1% + 最近一年亏损</td><td><details><summary>详情</summary><p>否决原因：最近一年 17 笔 -852.97 元不赚钱；止损合规不通过，含成本实际止损亏损约 574.41 元（5.74%），远超单笔 1% 线，100 股最小一手无法合规；回测另有 53 个信号因 100 股风险超 1% 被跳过。未发风控，未发交易员。</p></details></td></tr>
 <tr><td>2026-11-09</td><td><b>顺灏股份 002565</b></td><td><span class='score'>7 分</span></td><td>10.54</td><td>9.58</td><td>12.46</td><td class='bad'>1.09%</td><td class='bad'>-791.85 元</td><td>含成本止损超 1% + 最近一年亏损</td><td><details><summary>详情</summary><p>否决原因：最近一年 20 笔 -791.85 元不赚钱；含成本实际止损亏损约 108.51 元（1.09%），略超单笔 1% 线。未发风控，未发交易员。</p></details></td></tr>
@@ -93,17 +141,17 @@ details summary{cursor:pointer;color:#79b8ff} details p{color:#c9d1d9;font-size:
 <tr><td>2026-11-10</td><td><b>安泰集团 600408</b></td><td><span class='score'>7 分</span></td><td>3.65</td><td>3.27</td><td>4.41</td><td class='ok'>0.49%</td><td class='bad'>-380.44 元</td><td>最近一年回测亏损</td><td><details><summary>详情</summary><p>否决原因：最近一年 15 笔 -380.44 元不赚钱。含成本实际止损亏损约 48.86 元（0.49%），在 1% 线内；否决在回测上。周一曾打 6 分淘汰，今日 2 连板后重新实查上调为 7 分。未发风控，未发交易员。</p></details></td></tr>
 <tr><td>2026-11-10</td><td><b>新炬网络 605398</b></td><td><span class='score'>7 分</span></td><td>25.75</td><td>23.67</td><td>29.91</td><td class='bad'>2.24%</td><td class='bad'>-1,406.24 元</td><td>含成本止损超 1% + 最近一年亏损</td><td><details><summary>详情</summary><p>否决原因：最近一年 12 笔 -1,406.24 元不赚钱，胜率仅 8.33%；含成本实际止损亏损约 224.17 元（2.24%），远超单笔 1% 线。未发风控，未发交易员。</p></details></td></tr>
 <tr><td>2026-11-10</td><td><b>日海智能 002313</b></td><td><span class='score'>7 分</span></td><td>9.24</td><td>8.30</td><td>11.12</td><td class='bad'>1.06%</td><td class='bad'>-628.54 元</td><td>含成本止损超 1% + 最近一年亏损</td><td><details><summary>详情</summary><p>否决原因：最近一年 10 笔 -628.54 元不赚钱；含成本实际止损亏损约 106.19 元（1.06%），略超单笔 1% 线。未发风控，未发交易员。</p></details></td></tr>
-<tr><td>2026-11-10</td><td><b>天威视讯 002238</b></td><td><span class='score'>7 分</span></td><td>7.41</td><td>6.79</td><td>8.65</td><td class='ok'>0.74%</td><td class='bad'>-432.62 元</td><td>最近一年回测亏损</td><td><details><summary>详情</summary><p>否决原因：最近一年 15 笔 -432.62 元不赚钱。含成本实际止损亏损约 73.77 元（0.74%），在 1% 线内；否决在回测上。未发风控，未发交易员。</p></details></td></tr>
+<tr><td>2026-11-10</td><td><b>天威视讯 002238</b></td><td><span class='score'>7 分</span></td><td>7.41</td><td>6.79</td><td>8.65</td><td class='ok'>0.74%</td><td class='bad'>-432.62 元</td><td>含成本止损超 1% + 最近一年亏损</td><td><details><summary>详情</summary><p>否决原因：最近一年 15 笔 -432.62 元不赚钱。含成本实际止损亏损约 73.77 元（0.74%），在 1% 线内；否决在回测上。未发风控，未发交易员。</p></details></td></tr>
 <tr><td>2026-11-10</td><td><b>富瀚微 300613</b></td><td><span class='score'>7 分</span></td><td>80.02</td><td>69.00</td><td>102.06</td><td class='bad'>11.30%</td><td class='bad'>-200.00 元</td><td>含成本止损超 1% + 最近一年亏损</td><td><details><summary>详情</summary><p>否决原因：最近一年 12 笔 -200.00 元不赚钱；含成本实际止损亏损约 1,130.50 元（11.30%），远超单笔 1% 线；100 股成本 8,002 元，已略超周三 8,000 元总预算 2 元，且无法减仓。未发风控，未发交易员。</p></details></td></tr>
 </table></div>
 </div>
 
 <div class="card"><h2>规则卡片</h2>
 <div class="rules">
-<div class="rule"><b>风险线</b>单笔最多亏 1%（100 元）· 单日最多亏 2%（200 元）· 最多同时 5 个仓位</div>
+<div class="rule"><b>风险线</b>单笔最多亏 1%（200 元）· 单日最多亏 2%（400 元）· 最多同时 5 个仓位</div>
 <div class="rule"><b>策略师否决线</b>回测少于 30 笔 / 最近一年不赚钱 / 只在某一组特定参数下有效，命中任何一条即否决</div>
 <div class="rule"><b>绝不碰</b>仙股、杠杆、财报前、美联储和 CPI 公布当天</div>
-<div class="rule"><b>买入条件</b>风控「已批准」+ Chen 本人点头；限价单；超入场价 0.5% 不追</div>
+<div class="rule"><b>买入条件</b>风控「已批准」+ Chen 本人点头；限价单；超入场价 0.5% 不追；买入日总预算 16,000 元</div>
 </div>
 </div>
 
@@ -112,4 +160,72 @@ details summary{cursor:pointer;color:#79b8ff} details p{color:#c9d1d9;font-size:
 <span class="tag">周三 11-11 开盘后</span>买入窗口，但目前 0 支批准；新候选须走完图表 → 策略师 → 风控 → Chen 批准才能买。<br>
 <span class="tag">周日 20:19</span>每周复盘。数据来源：本仓库 <code>trading-log.md</code>；指数来源：澎湃新闻。</p>
 </div>
-</div></body></html>
+</div>
+<script>
+var CANDS=[
+{d:"2026-11-08",n:"海尔智家",c:"600690",s:7,e:"21.62",sl:"20.70",t:"23.46",sp:"—",ly:"-74.07 元",tr:"19 笔",tags:["笔数不足","最近一年亏损"],why:"3 年回测仅 19 笔（<30），最近一年 -74.07 元；短线复核 21 笔、最近一年 -154.97 元，仍否决。含成本止损约 107.31 元（1.07%），这支正是含成本止损规则的来源。"},
+{d:"2026-11-08",n:"长江电力",c:"600900",s:8,e:"29.91",sl:"29.25",t:"31.23",sp:"0.83%",ly:"-264.45 元",tr:"28 笔",tags:["笔数不足","最近一年亏损"],why:"3 年回测仅 28 笔（<30），最近一年 16 笔 -264.45 元；参数敏感性 27-32 笔，无一组同时通过两条否决线。含成本止损 0.83%，在 1% 线内。"},
+{d:"2026-11-09",n:"中国卫星",c:"600118",s:7,e:"60.50",sl:"55.00",t:"71.50",sp:"5.74%",ly:"-852.97 元",tr:"45 笔",tags:["止损超线","最近一年亏损"],why:"最近一年 17 笔 -852.97 元；含成本止损约 574.41 元（5.74%），100 股最小一手无法合规；回测另有 53 个信号因超 1% 被跳过。"},
+{d:"2026-11-09",n:"顺灏股份",c:"002565",s:7,e:"10.54",sl:"9.58",t:"12.46",sp:"1.09%",ly:"-791.85 元",tr:"55 笔",tags:["止损超线","最近一年亏损"],why:"最近一年 20 笔 -791.85 元；含成本止损约 108.51 元（1.09%），略超单笔 1% 线。"},
+{d:"2026-11-09",n:"万兴科技",c:"300624",s:7,e:"57.60",sl:"48.00",t:"76.80",sp:"9.83%",ly:"-240.31 元",tr:"18 笔",tags:["笔数不足","止损超线","最近一年亏损"],why:"3 年回测仅 18 笔（<30），最近一年 7 笔 -240.31 元；含成本止损约 983.06 元（9.83%）；回测另有 80 个信号因超 1% 被跳过。"},
+{d:"2026-11-09",n:"光洋股份",c:"002708",s:8,e:"21.97",sl:"19.00",t:"27.91",sp:"3.12%",ly:"-677.79 元",tr:"62 笔",tags:["止损超线","最近一年亏损"],why:"最近一年 22 笔 -677.79 元；含成本止损约 312.09 元（3.12%），改用支撑上沿 20.00 元仍约 212.24 元（2.12%）。"},
+{d:"2026-11-09",n:"金固股份",c:"002488",s:7,e:"7.48",sl:"6.44",t:"9.56",sp:"1.16%",ly:"-665.91 元",tr:"34 笔",tags:["止损超线","最近一年亏损"],why:"最近一年 11 笔 -665.91 元；含成本止损约 115.73 元（1.16%），略超单笔 1% 线。"},
+{d:"2026-11-09",n:"郑州煤电",c:"600121",s:7,e:"4.73",sl:"4.39",t:"5.41",sp:"0.45%",ly:"-482.59 元",tr:"53 笔",tags:["最近一年亏损"],why:"最近一年 21 笔 -482.59 元；含成本止损约 45.14 元（0.45%），在 1% 线内，否决只在回测一条线上。"},
+{d:"2026-11-09",n:"东方通信",c:"600776",s:7,e:"12.22",sl:"11.50",t:"13.66",sp:"0.85%",ly:"-14.53 元",tr:"5 笔",tags:["笔数不足","最近一年亏损"],why:"强势日规则回测仅 5 笔（<30），胜率 0%，最近一年 1 笔 -14.53 元；SMA50 规则交叉核对 57 笔，最近一年 23 笔 -786.74 元，同样否决。含成本止损 0.85%，在 1% 线内。"},
+{d:"2026-11-09",n:"盛洋科技",c:"603703",s:7,e:"11.10",sl:"10.25",t:"12.80",sp:"0.98%",ly:"-84.63 元",tr:"17 笔",tags:["笔数不足","最近一年亏损"],why:"强势日规则回测仅 17 笔（<30），最近一年 5 笔 -84.63 元；SMA50 规则交叉核对 57 笔，最近一年 15 笔 -407.41 元，同样否决。含成本止损 0.98%，在 1% 线内但非常贴线。"},
+{d:"2026-11-10",n:"维宏股份",c:"300508",s:7,e:"50.38",sl:"44.50",t:"62.14",sp:"6.10%",ly:"-529.46 元",tr:"42 笔",tags:["止损超线","最近一年亏损"],why:"最近一年 14 笔 -529.46 元；含成本止损约 609.81 元（6.10%），远超单笔 1% 线。"},
+{d:"2026-11-10",n:"杭州柯林",c:"688611",s:7,e:"71.42",sl:"66.50",t:"81.26",sp:"5.19%",ly:"-550.22 元",tr:"42 笔",tags:["止损超线","最近一年亏损"],why:"最近一年 9 笔 -550.22 元；含成本止损约 519.25 元（5.19%），远超单笔 1% 线。"},
+{d:"2026-11-10",n:"华策影视",c:"300133",s:8,e:"10.85",sl:"10.00",t:"12.55",sp:"0.98%",ly:"-167.26 元",tr:"62 笔",tags:["特定参数","最近一年亏损"],why:"提交的 2R 计划最近一年 23 笔 -167.26 元；只在目标抬到 2.5R/3R 时最近一年勉强打平（+39.56/+41.87 元，3 年总盈亏仍为负），其余参数组全部为负——踩中第三条否决线，未改目标凑通过。含成本止损 0.98%，在 1% 线内。"},
+{d:"2026-11-10",n:"同星科技",c:"301252",s:7,e:"39.94",sl:"37.00",t:"45.82",sp:"3.14%",ly:"-306.63 元",tr:"46 笔",tags:["止损超线","最近一年亏损"],why:"最近一年 9 笔 -306.63 元；含成本止损约 313.62 元（3.14%），远超单笔 1% 线；异动原因未查到公开新闻。"},
+{d:"2026-11-10",n:"慈文传媒",c:"002343",s:7,e:"9.33",sl:"8.47",t:"11.05",sp:"0.98%",ly:"-557.45 元",tr:"53 笔",tags:["最近一年亏损"],why:"最近一年 15 笔 -557.45 元；含成本止损约 98.22 元（0.98%），在 1% 线内但非常贴线。"},
+{d:"2026-11-10",n:"掌阅科技",c:"603533",s:7,e:"32.80",sl:"29.83",t:"38.74",sp:"3.15%",ly:"-1,444.38 元",tr:"48 笔",tags:["止损超线","最近一年亏损"],why:"最近一年 21 笔 -1,444.38 元，胜率仅 19.05%；含成本止损约 314.82 元（3.15%），远超单笔 1% 线；图表未给支撑位。"},
+{d:"2026-11-10",n:"安泰集团",c:"600408",s:7,e:"3.65",sl:"3.27",t:"4.41",sp:"0.49%",ly:"-380.44 元",tr:"45 笔",tags:["最近一年亏损"],why:"最近一年 15 笔 -380.44 元；含成本止损约 48.86 元（0.49%），在 1% 线内；否决在回测上。周一曾打 6 分淘汰，今日 2 连板后重新实查上调为 7 分。"},
+{d:"2026-11-10",n:"新炬网络",c:"605398",s:7,e:"25.75",sl:"23.67",t:"29.91",sp:"2.24%",ly:"-1,406.24 元",tr:"33 笔",tags:["止损超线","最近一年亏损"],why:"最近一年 12 笔 -1,406.24 元，胜率仅 8.33%；含成本止损约 224.17 元（2.24%），远超单笔 1% 线。"},
+{d:"2026-11-10",n:"日海智能",c:"002313",s:7,e:"9.24",sl:"8.30",t:"11.12",sp:"1.06%",ly:"-628.54 元",tr:"33 笔",tags:["止损超线","最近一年亏损"],why:"最近一年 10 笔 -628.54 元；含成本止损约 106.19 元（1.06%），略超单笔 1% 线。"},
+{d:"2026-11-10",n:"天威视讯",c:"002238",s:7,e:"7.41",sl:"6.79",t:"8.65",sp:"0.74%",ly:"-432.62 元",tr:"40 笔",tags:["最近一年亏损"],why:"最近一年 15 笔 -432.62 元；含成本止损约 73.77 元（0.74%），在 1% 线内；否决在回测上。"},
+{d:"2026-11-10",n:"富瀚微",c:"300613",s:7,e:"80.02",sl:"69.00",t:"102.06",sp:"11.30%",ly:"-200.00 元",tr:"33 笔",tags:["止损超线","最近一年亏损","预算超线"],why:"最近一年 12 笔 -200.00 元；含成本止损约 1,130.50 元（11.30%），远超单笔 1% 线；100 股成本 8,002 元，已略超当时周三 8,000 元总预算 2 元，且无法减仓。"}
+];
+var FILTERS=[["全部","全部"],["最近一年亏损","最近一年亏损"],["止损超线","止损超线"],["笔数不足","笔数不足"],["特定参数","特定参数"],["预算超线","预算超线"]];
+var curFilter="全部";
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function renderFilters(){
+  var f=document.getElementById("filters"); f.innerHTML="";
+  FILTERS.forEach(function(p){
+    var n=p[1]==="全部"?CANDS.length:CANDS.filter(function(x){return x.tags.indexOf(p[1])>=0;}).length;
+    var b=document.createElement("button");
+    b.textContent=p[0]+"（"+n+"）";
+    if(curFilter===p[1]) b.className="on";
+    b.onclick=function(){curFilter=p[1]; renderFilters(); renderChips();};
+    f.appendChild(b);
+  });
+}
+function renderChips(){
+  var w=document.getElementById("chips"); w.innerHTML="";
+  CANDS.forEach(function(x){
+    if(curFilter!=="全部" && x.tags.indexOf(curFilter)<0) return;
+    var b=document.createElement("button"); b.className="chip"; b.id="chip-"+x.c;
+    b.innerHTML="<b>"+esc(x.n)+" "+x.c+"</b><small>"+x.d+" · 图表 "+x.s+" 分 · "+esc(x.tags.join("、"))+"</small>";
+    b.onclick=function(){selectCand(x.c);};
+    w.appendChild(b);
+  });
+}
+function selectCand(code){
+  var x=null; CANDS.forEach(function(c){if(c.c===code) x=c;});
+  if(!x) return;
+  var chips=document.querySelectorAll(".chip"); chips.forEach(function(c){c.classList.remove("on");});
+  var me=document.getElementById("chip-"+code); if(me) me.classList.add("on");
+  var stopOK=(x.sp==="—"||x.sp==="0.83%"||x.sp==="0.45%"||x.sp==="0.85%"||x.sp==="0.98%"||x.sp==="0.49%"||x.sp==="0.74%");
+  var j=document.getElementById("journey");
+  j.innerHTML=
+  '<div class="journey">'+
+  '<div class="jstep pass"><div class="ji">✓ 侦察</div><div class="jd">扫描发现，送图表分析</div></div><div class="jarrow">→</div>'+
+  '<div class="jstep pass"><div class="ji">✓ 图表 '+x.s+' 分</div><div class="jd">7 分以上，通过，送策略师</div></div><div class="jarrow">→</div>'+
+  '<div class="jstep fail"><div class="ji">✗ 策略师否决</div><div class="jd">计划：入场 '+x.e+' · 止损 '+x.sl+' · 目标 '+x.t+'（2R）<br>含成本止损 '+x.sp+' · 3 年回测 '+x.tr+' · 最近一年 '+x.ly+'</div></div><div class="jarrow">→</div>'+
+  '<div class="jstep skip"><div class="ji">— 风控</div><div class="jd">没走到，未收到计划</div></div><div class="jarrow">→</div>'+
+  '<div class="jstep skip"><div class="ji">— 交易员</div><div class="jd">没走到，0 单</div></div>'+
+  '</div>'+
+  '<div class="detail"><b>'+esc(x.n)+' '+x.c+'</b>（'+x.d+'，图表 '+x.s+' 分）<br>'+esc(x.why)+'<br>止损合规：'+(stopOK?'含成本止损 '+x.sp+'，在单笔 1% 线内（按决策当时 10,000 元口径）。':'含成本止损 '+x.sp+'，超单笔 1% 线。')+'未发风控，未发交易员，无交易发生。</div>';
+}
+renderFilters(); renderChips(); selectCand("300133");
+</script>
+</body></html>
