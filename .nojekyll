@@ -1,0 +1,2 @@
+# GitHub Pages: skip Jekyll processing.
+# (Some filenames under schedules/ contain colons, which break the Jekyll build.)
